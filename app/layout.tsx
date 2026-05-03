@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const clerkTheme = {
+  baseTheme: "dark" as const,
   variables: {
     colorPrimary: "#0ea5e9",
     colorBackground: "#0f172a",
@@ -27,6 +28,22 @@ const clerkTheme = {
     colorNeutral: "#475569",
     colorInputBackground: "#1e293b",
     colorInputBorder: "#334155",
+    colorTextOnPrimaryBackground: "#000000",
+  },
+  elements: {
+    form: {
+      background: "#0f172a",
+      color: "#f1f5f9",
+    },
+    button: {
+      background: "#0ea5e9",
+      color: "#ffffff",
+    },
+    input: {
+      background: "#1e293b",
+      color: "#f1f5f9",
+      borderColor: "#334155",
+    },
   },
 };
 
@@ -41,7 +58,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-black text-white">
-        <ClerkProvider appearance={{ baseTheme: clerkTheme }}>
+        <ClerkProvider appearance={clerkTheme}>
           <header className="border-b border-gray-800">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
               <h1 className="text-2xl font-bold">Link Shortener</h1>
